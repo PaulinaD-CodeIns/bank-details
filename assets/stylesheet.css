@@ -1,5 +1,57 @@
 body {
-    background-color: red;
+    background: url(./images/backgroundphoto.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
     font-family: 'Macondo', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quiz-content-box {
+    background-color: rgba(245, 245, 225, 0.9);
+    width: 60%;                      
+    height: 65vh;                    
+    margin: 0 auto;                  
+    padding: 20px;                   
+    border-radius: 10px;            
+    border: 1px solid black;         
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.question-box {
+    background-color: bisque;
+    width: 95%;
+    height: 20%;
+    margin-bottom: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.answers-grid-box {
+    display: grid;                     
+    grid-template-columns: repeat(2, 1fr); 
+    grid-template-rows: repeat(2, 1fr);
+    gap: 60px;
+    justify-items: center;
+    align-items: center;
+    margin: 30px 20px 30px 20px;
 
 }
+
+.answers-grid-box span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1.2em;}
