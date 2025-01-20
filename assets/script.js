@@ -13,6 +13,7 @@ let currentQuestionIndex = 0;
 let score = 0;
 let username = "";
 
+
 startButton.addEventListener('click', StartQuiz);
 nextButton.addEventListener('click', SetNextQuestion);
 
@@ -32,6 +33,7 @@ const questions = [
 ];
 
 function shuffleQuestions(questions) {
+    shuffledQuestions = [...questions];
     return questions.sort(() => Math.random() - 0.5);
 }
 
@@ -77,6 +79,7 @@ function showQuestion(questionObj) {
     }
 }
 
+
 //Checks the selected answer and increments the score //
 function selectAnswer(selectedAnswer, correctAnswer, button) {
     if (selectedAnswer === correctAnswer) {
@@ -98,14 +101,16 @@ function selectAnswer(selectedAnswer, correctAnswer, button) {
     nextButton.classList.remove('hide');
 }
 
+
+// Sets next question from shuffled cards //
 function SetNextQuestion() {
    
-    const shuffledQuestions = shuffleQuestions(questions);
+    
     currentQuestionIndex++;
 
 
     if (currentQuestionIndex < shuffledQuestions.length) {
-        nextButton.classList.add('hide'); //
+        nextButton.classList.add('hide'); 
         showQuestion(shuffledQuestions[currentQuestionIndex]);
 
         
@@ -113,7 +118,7 @@ function SetNextQuestion() {
             answerButtons.children[i].style.backgroundColor = ''; 
             answerButtons.children[i].disabled = false;
         }
-    } else {
+    } else { // Displays username and results and allows for the option to restart the quiz //
 
         const finalUsername = localStorage.getItem('username');
         alert(`Congratulations ${finalUsername}! Your score is ${score} out of ${questions.length}!`);
