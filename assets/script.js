@@ -32,16 +32,16 @@ const questions = [
     { question: "What is the name of the ancient Egyptian sunken city discovered underwater?", options: ["Heracleion", "Atlantis", "Giza", "Amarna"], correctAnswer: "Heracleion" }
 ];
 
-function shuffleQuestions(questions) {
-    shuffledQuestions = [...questions];
-    return questions.sort(() => Math.random() - 0.5);
-}
+let shuffledQuestions = []; // Declare globally, don't re-declare inside StartQuiz
 
+function shuffleQuestions(arr) {
+    return arr.sort(() => Math.random() - 0.5);
+}
 
 // Start of the Quiz //
 function StartQuiz() {
     console.log("Game Started!");
-    let username 
+    let username;
     do {
         username = prompt("Welcome to the Quiz! Please enter your username:");
         
@@ -59,19 +59,20 @@ function StartQuiz() {
     answerButtons.classList.remove('hide');
     nextButton.classList.remove('hide');
 
-    const shuffledQuestions = shuffleQuestions(questions);
+    shuffledQuestions = shuffleQuestions(questions); // Shuffling globally
     score = 0;
     currentQuestionIndex = 0;
     
     showQuestion(shuffledQuestions[currentQuestionIndex]);
 }
 
-//Shows the shuffled question //
+// Shows the shuffled question //
 function showQuestion(questionObj) {
     questionsDiv.textContent = questionObj.question;
     
-    
-    const shuffledOptions = shuffleQuestions(questionObj.options);
+    // Shuffle the options separately
+    const shuffledOptions = shuffleQuestions([...questionObj.options]);
+
     for (let i = 0; i < 4; i++) {
         const button = answerButtons.children[i];
         button.textContent = shuffledOptions[i];
@@ -79,8 +80,7 @@ function showQuestion(questionObj) {
     }
 }
 
-
-//Checks the selected answer and increments the score //
+// Checks the selected answer and increments the score //
 function selectAnswer(selectedAnswer, correctAnswer, button) {
     if (selectedAnswer === correctAnswer) {
         button.style.backgroundColor = 'green';  // Correct answer
@@ -101,25 +101,19 @@ function selectAnswer(selectedAnswer, correctAnswer, button) {
     nextButton.classList.remove('hide');
 }
 
-
-// Sets next question from shuffled cards //
+// Sets the next question from shuffled cards //
 function SetNextQuestion() {
-   
-    
     currentQuestionIndex++;
-
 
     if (currentQuestionIndex < shuffledQuestions.length) {
         nextButton.classList.add('hide'); 
         showQuestion(shuffledQuestions[currentQuestionIndex]);
 
-        
         for (let i = 0; i < 4; i++) {
             answerButtons.children[i].style.backgroundColor = ''; 
             answerButtons.children[i].disabled = false;
         }
-    } else { // Displays username and results and allows for the option to restart the quiz //
-
+    } else {
         const finalUsername = localStorage.getItem('username');
         alert(`Congratulations ${finalUsername}! Your score is ${score} out of ${questions.length}!`);
 
@@ -131,19 +125,26 @@ function SetNextQuestion() {
         nextButton.classList.add('hide');
         
         questionsDiv.textContent = '';
-
     }
 }
 
 startButton.addEventListener('click', RestartQuiz);
 
 function RestartQuiz() {
+    shuffledQuestions = shuffleQuestions(questions); // Re-shuffle the questions on restart
+    score = 0;
+    currentQuestionIndex = 0;
+    showQuestion(shuffledQuestions[currentQuestionIndex]);
+
     for (let i = 0; i < 4; i++) {
-            const button = answerButtons.children[i];
-            button.style.backgroundColor = '';
-            button.disabled = false;
-        }
+        const button = answerButtons.children[i];
+        button.style.backgroundColor = '';
+        button.disabled = false;
     }
+
+    nextButton.classList.add('hide');
+}
+
 
     
 
