@@ -17,16 +17,23 @@
 <body>
     <h1> Ancient Egypt History Trivia</h1>
     <h3>The Ultimate Quiz</h3>
-    <div class="username-box" id="usernameBox"></div>
-    <div class="quiz-content-box" id="mainQuizBox"> 
-        <div class="question-box" id="questionBox"></div>
-        <div class="answers-grid-box" id="answersGridBox">
-            <span id="answer1box">1</span>
-            <span id="answer2box">2</span>
-            <span id="answer3box">3</span>
-            <span id="answer4box">4</span>
+    <div class="main-container">
+        <div id="question-container" class="hide">
+            <div id="questions"></div>
+            <div id="answer-buttons" class="answer-button-grid">
+                <button class="button" id="answer1">Answer 1</button>
+                <button class="button" id="answer2">Answer 2</button>
+                <button class="button" id="answer3">Answer 3</button>
+                <button class="button" id="answer4">Answer 4</button>
+            </div>
+            
         </div>
-        <div class="nextButtonBox">
+
+        <div class="controls">
+            <button id="start-button" class="button">Start</button>
+            <button id="next-button" class="button hide">Next</button>
+        </div>
+        class="nextButtonBox">
             <button id="nextButton">Next</button>
         </div>
     </div>

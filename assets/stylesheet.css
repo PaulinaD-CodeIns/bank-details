@@ -37,7 +37,7 @@ h3 {
 }
 
 /* Styling the Quiz Box */
-.quiz-content-box {
+.mainContainer {
     background-color: rgba(245, 245, 225, 0.9);
     width: 80%;
     max-width: 800px;
