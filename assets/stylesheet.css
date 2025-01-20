@@ -7,12 +7,11 @@
 }
 
 /* Styling the body element */
-
 body {
-    font-family: 'Macondo', sans-serif;
+    font-family: 'Macondo', Arial, Helvetica, sans-serif;
     background: url(./images/backgroundphoto.jpg) center/cover no-repeat;
-    background-size: cover;
-    height: 100vh;
+    min-height: 100vh;
+    width: 100vw;
     color: #333;
     display: flex;
     flex-direction: column;
@@ -21,6 +20,7 @@ body {
     text-align: center;
 }
 
+/* Headings */
 h1 {
     font-size: 4em;
     color: #fff;
@@ -37,21 +37,24 @@ h3 {
 }
 
 /* Styling the Quiz Box */
-.mainContainer {
+.main-container {
     background-color: rgba(245, 245, 225, 0.9);
     width: 80%;
     max-width: 800px;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#quiz-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
 }
 
-.question-box {
-    background-color: rgba(245, 245, 225, 0.9);
+#questions {
+    background-color: rgba(240, 240, 240, 1);
     background-size: 80%;
     width: 100%;
     padding: 20px;
@@ -63,7 +66,7 @@ h3 {
     overflow-y: auto;
 }
 
-.answers-grid-box {
+.answer-button-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px;
@@ -71,7 +74,7 @@ h3 {
     width: 100%;
 }
 
-.answers-grid-box span {
+.button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -86,20 +89,21 @@ h3 {
     transition: background-color 0.3s, transform 0.3s;
 }
 
-.answers-grid-box span:hover {
+.button:hover {
     background-color: #e0e0e0;
     transform: scale(1.05);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
 }
 
-.nextButtonBox {
+/* Styling the action button */
+.controls {
     margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#nextButton {
-    
+.action-button {
     padding: 20px 40px;
     font-size: 1.5em;
     color: white;
@@ -107,52 +111,44 @@ h3 {
     border: 1px solid black;
     border-radius: 10px;
     cursor: pointer;
-    width: auto;
     text-align: center;
     line-height: 1;
     font-family: 'Macondo', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
 
-#nextButton:hover {
+.action-button:hover {
     background-color: #07450C;
+    transform: scale(1.05);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
 }
 
+/*
+.hide { 
+    display: none;
+}
+*/
 
 /* Media Queries for screensize 768px or smaller */
 @media screen and (max-width: 768px) {
     body {
         padding: 10px;
     }
-
-    h1 {
-        font-size: 2.5em;
+    .main-container {
+        width: 95%;
+        padding: 10px;
     }
-
-    h3 {
-        font-size: 1.2em;
+    #questions {
+        font-size: 1.1em;
+        max-height: 120px;
     }
-
-    .quiz-content-box {
-        width: 100%;
-        padding: 15px;
-    }
-
-    .question-box {
-        font-size: 1.2em;
-        max-height: 150px;
-    }
-
-    .answers-grid-box {
+    .answer-button-grid {
         grid-template-columns: 1fr;
-        grid-gap: 15px;
+        grid-gap: 10px;
     }
-
-    #nextButton {
-        width: 80%;
-        font-size: 1.8em;
+    .action-button {
+        width: 100%;
     }
 }
