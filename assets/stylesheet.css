@@ -19,7 +19,15 @@ body {
     text-align: center;
 }
 
-/* Headings */
+/* Styling the username and timer*/
+
+#timer {
+    font-size: 20px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+/* Styling the headings */
 
 .title-container {
     background-color: rgba(245, 245, 225, 0.9);

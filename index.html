@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!--Meta tags-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Ancient Egypt Trivia Quiz</title>
 
+    <!--Links to CSS, favicons & Google Fonts Section-->
     <link rel="stylesheet" type="text/css" href="./assets/stylesheet.css">
     <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon-16x16.png">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Macondo&display=swap" rel="stylesheet">
@@ -15,14 +17,21 @@
 
 </head>
 <main>
-    <body>
+    <body> 
+        <section>
+            <div id="username-box">Username</div>
+            <div id="timer">Timer</div>
+        </section>
+        
+        <!--Title Section-->
         <section class="title-container">
             <h1> Ancient Egypt History Trivia</h1>
             <h3>The Ultimate Quiz</h3>
         </section>
 
         <br>
-        
+
+        <!--Main Quiz Section-->
         <section class="main-container">
             <div id="quiz-container" class="hide">
                 <div id="questions" class ="hide"></div>
@@ -35,13 +44,16 @@
                 
             </div>
     
+            <!--Control button Section-->
             <div class="controls">
                 <button id="start-button" class="action-button">Start</button>
                 <button id="next-button" class="action-button hide">Next</button>
             </div>
            
         </section>
-    
+
+
+        <!--Link to Javascript file-->
         <script src="./assets/script.js"></script>
     </body>
 </main>
