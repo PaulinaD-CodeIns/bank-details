@@ -2,7 +2,7 @@ window.onload = function() {
     console.log("Welcome to the Quiz!");
 };
 
-
+//Main body variables//
 let startButton = document.getElementById('start-button');
 let quizContainer = document.getElementById('quiz-container');
 let questionsDiv = document.getElementById('questions');
@@ -12,6 +12,12 @@ let nextButton = document.getElementById('next-button');
 let currentQuestionIndex = 0;
 let score = 0;
 let username = "";
+
+// Timer variables //
+
+let timerElement = document.getElementById('timer');
+let timerInterval; 
+let timeRemaining = 0;
 
 
 startButton.addEventListener('click', StartQuiz);
@@ -63,8 +69,27 @@ function StartQuiz() {
     shuffledQuestions = shuffleQuestions(questions);
     score = 0;
     currentQuestionIndex = 0;
+
+    timeRemaining = 60;
+    startTimer();
     
     showQuestion(shuffledQuestions[currentQuestionIndex]);
+}
+
+// Start the timer //
+function startTimer() {
+    function startTimer() {
+        timerInterval = setInterval(function() {
+            if (timeRemaining <= 0) {
+                clearInterval(timerInterval);
+                alert("Time's up! The quiz has ended.");
+                endQuiz();
+            } else {
+                timeRemaining--;
+                displayTime(timeRemaining);
+            }
+        }, 1000); 
+    }
 }
 
 // Shows the shuffled question //
