@@ -68,37 +68,37 @@ function StartQuiz() {
     score = 0;
     currentQuestionIndex = 0;
 
-    // Set timer to 2 minutes (120 seconds)
+    
     timeRemaining = 120;
-    startTimer(); // Start the timer when the quiz starts
+    startTimer(); // Start the timer //
 
     showQuestion(shuffledQuestions[currentQuestionIndex]);
-}
-
-// Reset the timer (this stops the timer and resets the time remaining) //
-function resetTimer() {
-    clearInterval(timerInterval); // Stop the timer if it's running
-    displayTime(timeRemaining); // Display the initial time (120 seconds)
 }
 
 // Start the timer when the quiz starts //
 function startTimer() {
     timerInterval = setInterval(function() {
         if (timeRemaining <= 0) {
-            clearInterval(timerInterval); // Stop the timer when time is up
+            clearInterval(timerInterval); 
             alert("Time's up! The quiz has ended.");
-            endQuiz(); // Automatically end the quiz if time runs out
+            endQuiz(); 
         } else {
             timeRemaining--;
-            displayTime(timeRemaining); // Update the timer display
+            displayTime(timeRemaining); 
         }
-    }, 1000); // Update every second
+    }, 1000);
 }
 
 function displayTime(seconds) {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
     timerElement.textContent = `Time Remaining: ${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+}
+
+// Reset the timer //
+function resetTimer() {
+    clearInterval(timerInterval); // Stop the timer if it's running
+    displayTime(timeRemaining); // Display the initial time (120 seconds)
 }
 
 // Shows the shuffled question //
@@ -159,8 +159,8 @@ function endQuiz() {
     const finalUsername = localStorage.getItem('username');
     alert(`Congratulations ${finalUsername}! Your score is ${score} out of ${questions.length}! Time taken: ${Math.floor((120 - timeRemaining) / 60)} minutes and ${(120 - timeRemaining) % 60} seconds.`);
 
-    // Clear the timer
-    clearInterval(timerInterval); // Ensure timer stops
+    
+    clearInterval(timerInterval); // Timer stops
 
     // Reset and hide all the elements for a fresh start
     startButton.classList.remove('hide');
@@ -183,8 +183,9 @@ function RestartQuiz() {
     showQuestion(shuffledQuestions[currentQuestionIndex]);
 
     timeRemaining = 120; // Reset the timer to 2 minutes
-    resetTimer(); // Reset the timer display but do not start counting down
-    startTimer(); // Start the timer when the user restarts the quiz
+    resetTimer(); // Reset the timer display
+    startTimer(); // Start the timer 
+
 
     for (let i = 0; i < 4; i++) {
         const button = answerButtons.children[i];
