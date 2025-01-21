@@ -57,12 +57,19 @@ function StartQuiz() {
 
     console.log("Username: " + username);
     localStorage.setItem("username", username);
+    document.getElementById('username-box').textContent = username;
+
+    const usernameBox = document.getElementById('username-box');
+    const timerBox = document.getElementById('timer');
 
     startButton.classList.add('hide');
+
     quizContainer.classList.remove('hide');
     questionsDiv.classList.remove('hide');
     answerButtons.classList.remove('hide');
     nextButton.classList.remove('hide');
+    usernameBox.classList.remove('hide');
+    timerBox.classList.remove('hide');
 
     shuffledQuestions = shuffleQuestions(questions);
     score = 0;
