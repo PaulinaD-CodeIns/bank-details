@@ -19,8 +19,7 @@ body {
     text-align: center;
 }
 
-/* Styling the username and timer*/
-
+/* Styling the username and timer */
 #timer {
     position: fixed;
     top: 10px;
@@ -46,19 +45,10 @@ body {
 }
 
 /* Styling the headings */
-
-.title-container {
-    background-color: rgba(245, 245, 225, 0.9);
-    max-width: 900px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
 h1 {
     font-size: 4rem;
     color: #333;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     margin-top: 10px;
 }
 
@@ -71,7 +61,8 @@ h3 {
 /* Styling the Quiz Box */
 .main-container {
     background-color: rgba(245, 245, 225, 0.9);
-    max-width: 800px;
+    max-width: 1000px;
+    width: 100%;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -97,6 +88,7 @@ h3 {
     overflow-y: auto;
 }
 
+/*Styling the Asnwer Buttons*/
 .answer-button-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -156,30 +148,63 @@ h3 {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
 }
 
-
+/* Hide elements */
 .hide { 
     display: none;
 }
-
 
 /* Media Queries for screensize 768px or smaller */
 @media screen and (max-width: 768px) {
     body {
         padding: 10px;
     }
+
+    /* Make sure both title-container and main-container take full width */
     .main-container {
         width: 95%;
         padding: 10px;
     }
+
+    /* Position of questions */
     #questions {
         font-size: 1.1em;
         max-height: 120px;
     }
+
+    /* Stack answer buttons vertically */
     .answer-button-grid {
         grid-template-columns: 1fr;
         grid-gap: 10px;
     }
+
+    /* Action button takes full width */
     .action-button {
         width: 100%;
+    }
+
+    /* Adjust username and timer box layout */
+    #username-box, #timer {
+        position: static; /* Change to static for smaller screens */
+        width: auto;
+        margin: 10px 0;
+        text-align: center;
+        display: block; /* Ensure they are stacked vertically */
+    }
+
+    /* Additional tweaks for layout */
+    .title-container,
+    .main-container {
+        width: 100%;
+        padding: 10px;
+        max-width: none; /* Ensure full width without max-width constraints */
+    }
+
+    #username-box.hide {
+        display: none;
+    }
+
+    /* Ensure that both username and timer align well */
+    #username-box {
+        margin-right: 0;
     }
 }
