@@ -92,6 +92,12 @@ function startTimer() {
     }
 }
 
+function displayTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    timerElement.textContent = `Time Remaining: ${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+}
+
 // Shows the shuffled question //
 function showQuestion(questionObj) {
     questionsDiv.textContent = questionObj.question;
@@ -139,19 +145,27 @@ function SetNextQuestion() {
             answerButtons.children[i].style.backgroundColor = ''; 
             answerButtons.children[i].disabled = false;
         }
-    } else { //End of game events//
-        const finalUsername = localStorage.getItem('username');
-        alert(`Congratulations ${finalUsername}! Your score is ${score} out of ${questions.length}!`);
-
-        startButton.classList.remove('hide');
-        startButton.innerHTML = "Restart";
-        quizContainer.classList.add('hide');
-        questionsDiv.classList.add('hide');
-        answerButtons.classList.add('hide');
-        nextButton.classList.add('hide');
-        
-        questionsDiv.textContent = '';
+    } else { 
+        endQuiz();
     }
+}
+
+//End of Quiz//
+function endQuiz() {
+    const finalUsername = localStorage.getItem('username');
+        alert(`Congratulations ${finalUsername}! Your score is ${score} out of ${questions.length}! `Time taken: ${Math.floor(timeRemaining / 60)} minutes and ${timeRemaining % 60} seconds.``);
+
+    clearInterval(timerInterval); //Stops the timer//
+
+    startButton.classList.remove('hide');
+    startButton.innerHTML = "Restart";
+    quizContainer.classList.add('hide');
+    questionsDiv.classList.add('hide');
+    answerButtons.classList.add('hide');
+    nextButton.classList.add('hide');
+        
+    questionsDiv.textContent = '';
+
 }
 
 // Restart of the Quiz //
@@ -162,6 +176,9 @@ function RestartQuiz() {
     score = 0;
     currentQuestionIndex = 0;
     showQuestion(shuffledQuestions[currentQuestionIndex]);
+
+    timeRemaining = 60; // Reset the timer and starts it again
+    startTimer();
 
     for (let i = 0; i < 4; i++) {
         const button = answerButtons.children[i];
