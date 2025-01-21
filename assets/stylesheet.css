@@ -177,33 +177,33 @@ h3 {
         grid-gap: 10px;
     }
 
-    /* Action button takes full width */
+    /* Action button becomes full width */
     .action-button {
         width: 100%;
     }
 
     /* Adjust username and timer box layout */
     #username-box, #timer {
-        position: static; /* Change to static for smaller screens */
+        position: static; 
         width: auto;
         margin: 10px 0;
         text-align: center;
-        display: block; /* Ensure they are stacked vertically */
+        display: block; 
     }
 
-    /* Additional tweaks for layout */
+    /* Tweaks for general layout */
     .title-container,
     .main-container {
         width: 100%;
         padding: 10px;
-        max-width: none; /* Ensure full width without max-width constraints */
+        max-width: none; 
     }
 
     #username-box.hide {
         display: none;
     }
 
-    /* Ensure that both username and timer align well */
+    /* Aligns username and timer */
     #username-box {
         margin-right: 0;
     }

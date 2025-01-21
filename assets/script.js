@@ -84,17 +84,23 @@ function StartQuiz() {
 
 // Start the timer when the quiz starts //
 function startTimer() {
-    timerInterval = setInterval(function() {
-        if (timeRemaining <= 0) {
-            clearInterval(timerInterval); 
-            alert("Time's up! The quiz has ended.");
-            endQuiz(); 
-        } else {
-            timeRemaining--;
-            displayTime(timeRemaining); 
-        }
-    }, 1000);
+    try {
+        timerInterval = setInterval(function() {
+            if (timeRemaining <= 0) {
+                clearInterval(timerInterval); 
+                alert("Time's up! The quiz has ended.");
+                endQuiz(); 
+            } else {
+                timeRemaining--;
+                displayTime(timeRemaining); 
+            }
+        }, 1000);
+    } catch (err) {
+        console.error("Error in starting timer: ", err);
+        alert("An error occurred while starting the timer. Please try again.");
+    }
 }
+
 
 function displayTime(seconds) {
     const minutes = Math.floor(seconds / 60);
