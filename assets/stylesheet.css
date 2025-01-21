@@ -22,9 +22,18 @@ body {
 /* Styling the username and timer*/
 
 #timer {
+    position: fixed;
+    top: 5px;
+    right: 15px;
     font-size: 20px;
     margin: 10px 0;
     font-weight: bold;
+    color: #f0f0f0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+#username-box {
+    
 }
 
 /* Styling the headings */
