@@ -114,6 +114,21 @@ function resetTimer() {
     displayTime(timeRemaining); // Display the initial time (120 seconds)
 }
 
+// 
+document.addEventListener('keydown', function(event) {
+    // Check if the 'Enter' key was pressed
+    if (event.key === "Enter") {
+        // If the Start button is visible, simulate the Start button click
+        if (!startButton.classList.contains('hide')) {
+            startButton.click();
+        }
+        // If the Next button is visible, simulate the Next button click
+        else if (!nextButton.classList.contains('hide')) {
+            nextButton.click();
+        }
+    }
+});
+
 // Shows the shuffled question //
 function showQuestion(questionObj) {
     questionsDiv.textContent = questionObj.question;
