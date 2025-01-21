@@ -2,7 +2,7 @@ window.onload = function() {
     console.log("Welcome to the Quiz!");
 };
 
-//Main body variables//
+// Main body variables //
 let startButton = document.getElementById('start-button');
 let quizContainer = document.getElementById('quiz-container');
 let questionsDiv = document.getElementById('questions');
@@ -14,17 +14,14 @@ let score = 0;
 let username = "";
 
 // Timer variables //
-
 let timerElement = document.getElementById('timer');
-let timerInterval; 
+let timerInterval;
 let timeRemaining = 0;
-
 
 startButton.addEventListener('click', StartQuiz);
 nextButton.addEventListener('click', SetNextQuestion);
 
-//Random shuffle of the questions before quiz start//
-
+// Random shuffle of the questions before quiz start //
 const questions = [
     { question: "Who was the first pharaoh of Egypt?", options: ["Narmer", "Tutankhamun", "Cleopatra", "Ramses II"], correctAnswer: "Narmer" },
     { question: "What is the capital of ancient Egypt?", options: ["Alexandria", "Cairo", "Thebes", "Memphis"], correctAnswer: "Thebes" },
@@ -38,7 +35,7 @@ const questions = [
     { question: "What is the name of the ancient Egyptian sunken city discovered underwater?", options: ["Heracleion", "Atlantis", "Giza", "Amarna"], correctAnswer: "Heracleion" }
 ];
 
-//Shuffled random questions quiz start //
+// Shuffled random questions quiz start //
 let shuffledQuestions = [];
 
 function shuffleQuestions(arr) {
@@ -47,7 +44,8 @@ function shuffleQuestions(arr) {
 
 // Start of the Quiz //
 function StartQuiz() {
-    console.log("Game Started!"); //Debugging//
+    console.log("Game Started!"); // Debugging //
+
     let username;
     do {
         username = prompt("Welcome to the Quiz! Please enter your username:");
@@ -56,10 +54,10 @@ function StartQuiz() {
             alert("You must enter a username to continue, sorry!");
         }
     } while (!username || username.trim() === "");
-    
+
     console.log("Username: " + username);
     localStorage.setItem("username", username);
-    
+
     startButton.classList.add('hide');
     quizContainer.classList.remove('hide');
     questionsDiv.classList.remove('hide');
@@ -70,26 +68,31 @@ function StartQuiz() {
     score = 0;
     currentQuestionIndex = 0;
 
-    timeRemaining = 60;
-    startTimer();
-    
+    // Set timer to 2 minutes (120 seconds)
+    timeRemaining = 120;
+    startTimer(); // Start the timer when the quiz starts
+
     showQuestion(shuffledQuestions[currentQuestionIndex]);
 }
 
-// Start the timer //
+// Reset the timer (this stops the timer and resets the time remaining) //
+function resetTimer() {
+    clearInterval(timerInterval); // Stop the timer if it's running
+    displayTime(timeRemaining); // Display the initial time (120 seconds)
+}
+
+// Start the timer when the quiz starts //
 function startTimer() {
-    function startTimer() {
-        timerInterval = setInterval(function() {
-            if (timeRemaining <= 0) {
-                clearInterval(timerInterval);
-                alert("Time's up! The quiz has ended.");
-                endQuiz();
-            } else {
-                timeRemaining--;
-                displayTime(timeRemaining);
-            }
-        }, 1000); 
-    }
+    timerInterval = setInterval(function() {
+        if (timeRemaining <= 0) {
+            clearInterval(timerInterval); // Stop the timer when time is up
+            alert("Time's up! The quiz has ended.");
+            endQuiz(); // Automatically end the quiz if time runs out
+        } else {
+            timeRemaining--;
+            displayTime(timeRemaining); // Update the timer display
+        }
+    }, 1000); // Update every second
 }
 
 function displayTime(seconds) {
@@ -101,8 +104,7 @@ function displayTime(seconds) {
 // Shows the shuffled question //
 function showQuestion(questionObj) {
     questionsDiv.textContent = questionObj.question;
-    
-    
+
     const shuffledOptions = shuffleQuestions([...questionObj.options]);
 
     for (let i = 0; i < 4; i++) {
@@ -138,34 +140,37 @@ function SetNextQuestion() {
     currentQuestionIndex++;
 
     if (currentQuestionIndex < shuffledQuestions.length) {
-        nextButton.classList.add('hide'); 
+        nextButton.classList.add('hide');
         showQuestion(shuffledQuestions[currentQuestionIndex]);
 
         for (let i = 0; i < 4; i++) {
-            answerButtons.children[i].style.backgroundColor = ''; 
+            answerButtons.children[i].style.backgroundColor = '';
             answerButtons.children[i].disabled = false;
         }
-    } else { 
-        endQuiz();
+    } else {
+        clearInterval(timerInterval); // Stop the timer after the last question is answered
+        endQuiz(); // Call endQuiz when the last question is answered
     }
 }
 
-//End of Quiz//
+// End of Quiz //
 function endQuiz() {
+    // Show the time taken for the quiz
     const finalUsername = localStorage.getItem('username');
-        alert(`Congratulations ${finalUsername}! Your score is ${score} out of ${questions.length}! `Time taken: ${Math.floor(timeRemaining / 60)} minutes and ${timeRemaining % 60} seconds.``);
+    alert(`Congratulations ${finalUsername}! Your score is ${score} out of ${questions.length}! Time taken: ${Math.floor((120 - timeRemaining) / 60)} minutes and ${(120 - timeRemaining) % 60} seconds.`);
 
-    clearInterval(timerInterval); //Stops the timer//
+    // Clear the timer
+    clearInterval(timerInterval); // Ensure timer stops
 
+    // Reset and hide all the elements for a fresh start
     startButton.classList.remove('hide');
     startButton.innerHTML = "Restart";
     quizContainer.classList.add('hide');
     questionsDiv.classList.add('hide');
     answerButtons.classList.add('hide');
     nextButton.classList.add('hide');
-        
+    
     questionsDiv.textContent = '';
-
 }
 
 // Restart of the Quiz //
@@ -177,8 +182,9 @@ function RestartQuiz() {
     currentQuestionIndex = 0;
     showQuestion(shuffledQuestions[currentQuestionIndex]);
 
-    timeRemaining = 60; // Reset the timer and starts it again
-    startTimer();
+    timeRemaining = 120; // Reset the timer to 2 minutes
+    resetTimer(); // Reset the timer display but do not start counting down
+    startTimer(); // Start the timer when the user restarts the quiz
 
     for (let i = 0; i < 4; i++) {
         const button = answerButtons.children[i];
@@ -188,8 +194,3 @@ function RestartQuiz() {
 
     nextButton.classList.add('hide');
 }
-
-
-    
-
-
