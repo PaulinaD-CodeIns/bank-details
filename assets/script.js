@@ -32,7 +32,8 @@ const questions = [
     { question: "What is the name of the ancient Egyptian sunken city discovered underwater?", options: ["Heracleion", "Atlantis", "Giza", "Amarna"], correctAnswer: "Heracleion" }
 ];
 
-let shuffledQuestions = []; // Declare globally, don't re-declare inside StartQuiz
+//Shuffled random questions quiz start //
+let shuffledQuestions = [];
 
 function shuffleQuestions(arr) {
     return arr.sort(() => Math.random() - 0.5);
@@ -40,7 +41,7 @@ function shuffleQuestions(arr) {
 
 // Start of the Quiz //
 function StartQuiz() {
-    console.log("Game Started!");
+    console.log("Game Started!"); //Debugging//
     let username;
     do {
         username = prompt("Welcome to the Quiz! Please enter your username:");
@@ -59,7 +60,7 @@ function StartQuiz() {
     answerButtons.classList.remove('hide');
     nextButton.classList.remove('hide');
 
-    shuffledQuestions = shuffleQuestions(questions); // Shuffling globally
+    shuffledQuestions = shuffleQuestions(questions);
     score = 0;
     currentQuestionIndex = 0;
     
@@ -70,7 +71,7 @@ function StartQuiz() {
 function showQuestion(questionObj) {
     questionsDiv.textContent = questionObj.question;
     
-    // Shuffle the options separately
+    
     const shuffledOptions = shuffleQuestions([...questionObj.options]);
 
     for (let i = 0; i < 4; i++) {
@@ -101,7 +102,7 @@ function selectAnswer(selectedAnswer, correctAnswer, button) {
     nextButton.classList.remove('hide');
 }
 
-// Sets the next question from shuffled cards //
+// Sets the next question from shuffled questions //
 function SetNextQuestion() {
     currentQuestionIndex++;
 
@@ -113,7 +114,7 @@ function SetNextQuestion() {
             answerButtons.children[i].style.backgroundColor = ''; 
             answerButtons.children[i].disabled = false;
         }
-    } else {
+    } else { //End of game events//
         const finalUsername = localStorage.getItem('username');
         alert(`Congratulations ${finalUsername}! Your score is ${score} out of ${questions.length}!`);
 
@@ -128,10 +129,11 @@ function SetNextQuestion() {
     }
 }
 
+// Restart of the Quiz //
 startButton.addEventListener('click', RestartQuiz);
 
 function RestartQuiz() {
-    shuffledQuestions = shuffleQuestions(questions); // Re-shuffle the questions on restart
+    shuffledQuestions = shuffleQuestions(questions); // Re-shuffle the questions on restart to play again
     score = 0;
     currentQuestionIndex = 0;
     showQuestion(shuffledQuestions[currentQuestionIndex]);
