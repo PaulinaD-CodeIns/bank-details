@@ -203,6 +203,10 @@ h3 {
         display: none;
     }
 
+    #timer.hide {
+        display: none;
+    }
+
     /* Aligns username and timer */
     #username-box {
         margin-right: 0;

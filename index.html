@@ -9,18 +9,17 @@
 
     <!--Links to CSS, favicons & Google Fonts Section-->
     <link rel="stylesheet" type="text/css" href="./assets/css/stylesheet.css">
-    <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon-16x16.png" alt="Quiz Icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Macondo&display=swap" rel="stylesheet">
-    
 
 </head>
-<main>
-    <body> 
-        <section>
-            <div id="username-box" class="hide"></div>
-            <div id="timer" class="hide"></div>
+<body> 
+    <main>
+        <section> <!--Username & Timer Section-->
+            <div id="username-box" class="hide">Username</div>
+            <div id="timer" class="hide">Time Remaining: 00:00</div>
         </section>
         
         <!--Title Section-->
@@ -28,9 +27,9 @@
             <h1> Ancient Egypt History Trivia</h1>
             <h3>The Ultimate Quiz</h3>
         </section>
-
+    
         <br>
-
+    
         <!--Main Quiz Section-->
         <section class="main-container">
             <div id="quiz-container" class="hide">
@@ -46,17 +45,16 @@
     
             <!--Control button Section-->
             <div class="controls">
-                <button id="start-button" class="action-button">Start</button>
-                <button id="next-button" class="action-button hide">Next</button>
+                <button id="start-button" class="action-button"  aria-label="Start the Quiz!">Start</button>
+                <button id="next-button" class="action-button hide"  aria-label="Move to the Next Question!">Next</button>
             </div>
            
-        </section>
+        </section>    
+    </main>
 
-
-        <!--Link to Javascript file-->
-        <script src="./assets/javascript/script.js"></script>
-    </body>
-</main>
+    <!--Link to Javascript file-->
+    <script src="./assets/javascript/script.js"></script>
+</body>
 
 </html>
 
