@@ -1,7 +1,3 @@
-window.onload = function() {
-    console.log("Welcome to the Quiz!");
-};
-
 // Main body variables //
 let startButton = document.getElementById('start-button');
 let quizContainer = document.getElementById('quiz-container');
@@ -12,6 +8,9 @@ let nextButton = document.getElementById('next-button');
 let currentQuestionIndex = 0;
 let score = 0;
 let username = "";
+
+const usernameBox = document.getElementById('username-box');
+const timerBox = document.getElementById('timer');
 
 // Timer variables //
 let timerElement = document.getElementById('timer');
@@ -44,8 +43,8 @@ function shuffleQuestions(arr) {
 
 // Start of the Quiz //
 function StartQuiz() {
-    console.log("Game Started!"); // Debugging //
 
+    //Collectes username//
     let username;
     do {
         username = prompt("Welcome to the Quiz! Please enter your username:");
@@ -55,15 +54,11 @@ function StartQuiz() {
         }
     } while (!username || username.trim() === "");
 
-    console.log("Username: " + username);
     localStorage.setItem("username", username);
     document.getElementById('username-box').textContent = username;
 
-    const usernameBox = document.getElementById('username-box');
-    const timerBox = document.getElementById('timer');
-
+    // Change visability of elements //
     startButton.classList.add('hide');
-
     quizContainer.classList.remove('hide');
     questionsDiv.classList.remove('hide');
     answerButtons.classList.remove('hide');
@@ -75,14 +70,14 @@ function StartQuiz() {
     score = 0;
     currentQuestionIndex = 0;
 
-    
+    // Start the timer //
     timeRemaining = 120;
-    startTimer(); // Start the timer //
+    startTimer();
 
     showQuestion(shuffledQuestions[currentQuestionIndex]);
 }
 
-// Start the timer when the quiz starts //
+// Timer functions //
 function startTimer() {
     try {
         timerInterval = setInterval(function() {
@@ -111,18 +106,15 @@ function displayTime(seconds) {
 // Reset the timer //
 function resetTimer() {
     clearInterval(timerInterval); // Stop the timer if it's running
-    displayTime(timeRemaining); // Display the initial time (120 seconds)
+    displayTime(timeRemaining);
 }
 
-// 
+// If Start/ Next button available, keydown becomes available //
 document.addEventListener('keydown', function(event) {
-    // Check if the 'Enter' key was pressed
     if (event.key === "Enter") {
-        // If the Start button is visible, simulate the Start button click
         if (!startButton.classList.contains('hide')) {
             startButton.click();
         }
-        // If the Next button is visible, simulate the Next button click
         else if (!nextButton.classList.contains('hide')) {
             nextButton.click();
         }
@@ -156,6 +148,7 @@ function selectAnswer(selectedAnswer, correctAnswer, button) {
         }
     }
 
+    //Disable other buttons once answer selected //
     for (let i = 0; i < 4; i++) {
         answerButtons.children[i].disabled = true;
     }
@@ -175,15 +168,15 @@ function SetNextQuestion() {
             answerButtons.children[i].style.backgroundColor = '';
             answerButtons.children[i].disabled = false;
         }
-    } else {
-        clearInterval(timerInterval); // Stop the timer after the last question is answered
-        endQuiz(); // Call endQuiz when the last question is answered
+    } else { // If no more questions, stop timer & end quiz //
+        clearInterval(timerInterval); 
+        endQuiz();
     }
 }
 
 // End of Quiz //
 function endQuiz() {
-    // Show the time taken for the quiz
+    // Show the username, score & time taken for the quiz
     const finalUsername = localStorage.getItem('username');
     alert(`Congratulations ${finalUsername}! Your score is ${score} out of ${questions.length}! Time taken: ${Math.floor((120 - timeRemaining) / 60)} minutes and ${(120 - timeRemaining) % 60} seconds.`);
 
@@ -210,9 +203,10 @@ function RestartQuiz() {
     currentQuestionIndex = 0;
     showQuestion(shuffledQuestions[currentQuestionIndex]);
 
-    timeRemaining = 120; // Reset the timer to 2 minutes
-    resetTimer(); // Reset the timer display
-    startTimer(); // Start the timer 
+    // Resets the timer //
+    timeRemaining = 120;
+    resetTimer(); 
+    startTimer(); 
 
 
     for (let i = 0; i < 4; i++) {
