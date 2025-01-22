@@ -1,4 +1,4 @@
-# Ancient Egypt Trivia Quiz
+# Ancient Egypt Trivia Quiz: A Web-Based Interactive Quiz:
 
 ## Table of Contents
 
@@ -60,6 +60,8 @@ The target audience for Ancient Egypt Trivia Quiz is anyone wanting to test or e
 - **Background**: A subtle background image of ancient Egyptian desert and monuments is used to create an immersive atmosphere. The background is blurred and desaturated to ensure it doesn't overpower the quiz content.
 - **Visual Feedback**: Immediate colour changes on correct/incorrect answers with transitions and animations like the timer countdown, making the quiz feel responsive and lively.
 
+![Visual Design](assets/images/README-photos/VisualDesign.png)
+
 ---
 
 ## Key Features
@@ -67,12 +69,21 @@ The target audience for Ancient Egypt Trivia Quiz is anyone wanting to test or e
 - **User Interface (UI)**:
 
   - **Username Input**: At the start of the quiz, users are prompted to input a username, which will be displayed throughout the quiz. This personalises the experience, especially when showing final results at the end.
+
+  ![UsernameInput](assets/images/README-photos/UsernameInput.png)
+  ![UsernameDisplay](assets/images/README-photos/UsernameDisplay.png)
+
   - **Main Quiz Layout**: The layout includes a title section, a timer, a username display, a dynamically updated question display, and multiple-choice buttons for answering.
+
   - **Visual Styling**: The UI is clean and minimalist, with a focus on legibility and usability. The vibrant design is inspired by Egyptian history, including the colour palette and typography. The background image draws inspiration from Egyptian landscapes to ensure the design is immersive.
 
-- **Timer**: A countdown timer runs throughout the quiz, starting from 2 minutes (120 seconds). The timer is prominently displayed, providing a sense of urgency as the user works through the questions. If time runs out before completing all the questions, the quiz automatically ends and informs the player that time is up.
+  ![StartPage](assets/images/README-photos/StartPage.png)
 
-- **Questions & Answers**: The quiz features a variety of questions about Ancient Egyptian history, including topics like:
+  - **Timer**: A countdown timer runs throughout the quiz, starting from 2 minutes (120 seconds). The timer is prominently displayed, providing a sense of urgency as the user works through the questions. If time runs out before completing all the questions, the quiz automatically ends and informs the player that time is up.
+
+  ![Timer](assets/images/README-photos/Timer.png)
+
+  - **Questions & Answers**: The quiz features a variety of questions about Ancient Egyptian history, including topics like:
 
   - **Pharaohs** (e.g., "Who was the first pharaoh of Egypt?")
   - **Monuments** (e.g., "Which pyramid is the largest?")
@@ -81,11 +92,16 @@ The target audience for Ancient Egypt Trivia Quiz is anyone wanting to test or e
 
   Each question has four multiple-choice answer options, randomised to prevent users from memorising answer patterns. Correct answers are highlighted in green, while incorrect answers are shown in red after selection. The correct answer is revealed to the user if they make an error.
 
+  ![Question&Answers](assets/images/README-photos/Question&Answers.png)
+
 - **Game Flow**:
+
   - **Start**: The quiz begins with a prompt for the user to enter their username. Once a username is entered, the quiz UI is shown, and the timer begins.
   - **Answering Questions**: Users select an answer for each question. After answering, they click the "Next" button to proceed to the next question.
   - **Score Calculation**: The user's score is updated in real-time as they answer questions correctly. Each correct answer earns one point.
   - **Ending the Quiz**: Once all the questions are answered or the timer runs out, the quiz ends. The user is shown their score along with the time taken to complete the quiz.
+
+  ![Results](assets/images/README-photos/Results.png)
 
 ---
 
@@ -157,7 +173,7 @@ The target audience for Ancient Egypt Trivia Quiz is anyone wanting to test or e
 
 - **Accessability**:
 
-Using Chrome DevTools' Lighthouse tool, the website received strong performance ratings across multiple categories. The overall performance score is an impressive 99, indicating fast load times and excellent optimization. The accessibility score of 97 highlights the website's ease of use for a wide range of users, ensuring a smooth and intuitive experience. The SEO score of 90 reflects good search engine optimization practices, making the site well-indexed and discoverable. Lastly, the website achieved a perfect 100 in Best Practices, confirming that it follows modern web standards and prioritizes security and reliability. Overall, this project scored highly in the metrics indicating a well-rounded, functional, and performemce website created with usability and optimisation in mind. To further measure the accuracy of these metrics, in the future, I also plan to use additional third-party accessibility auditors such as axe and WAVE. These tools provide valuable cross-references, offering different perspectives and ensuring that the accessibility and performance data is consistent across various platforms.
+Using Chrome DevTools' Lighthouse tool, the website received strong performance ratings across multiple categories. The overall performance score is an impressive 99, indicating fast load times and excellent optimization. The accessibility score of 97 highlights the website's ease of use for a wide range of users, ensuring a smooth and intuitive experience. The SEO score of 90 reflects good search engine optimization practices, making the site well-indexed and discoverable. Lastly, the website achieved a perfect 100 in Best Practices, confirming that it follows modern web standards and prioritizes security and reliability. This was tested for mobile and desktop application and both had the same result. Overall, this project scored highly in the metrics indicating a well-rounded, functional, and performemce website created with usability and optimisation in mind. To further measure the accuracy of these metrics, in the future, I also plan to use additional third-party accessibility auditors such as axe and WAVE. These tools provide valuable cross-references, offering different perspectives and ensuring that the accessibility and performance data is consistent across various platforms.
 
 ![Lighthouse Results](assets/images/README-photos/LighthouseDevTools.png)
 
