@@ -1,134 +1,134 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+Ancient Egypt Trivia Quiz: A Web-Based Interactive Quiz:
+Table of Contents
+Overview
+UX Goals
+Target Audience
+User Goals
+Visual Design
+Key Features
+How It Works
+Technology Stack
+Files and Structure
+Testing
+Deployment
+Credits
+Contact
 
-Welcome Paulina Dolder,
+Overview:
+The Ancient Egypt Trivia Quiz is an interactive, web-based trivia game that allows users to test their knowledge of Ancient Egyptian history, culture, and archaeology. The quiz is designed to be both informative and fun, providing users with a set of multiple-choice questions that range from basic facts to more advanced knowledge about Ancient Egypt. The quiz is timed, adding an element of challenge, and is presented with an intuitive, visually appealing layout.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+UX Goals:
+The primary UX goals for the quiz are:
+Clear, simple, and intuitive interface: Easy navigation with clear labelling of buttons and actions.
+Engaging, fun experience: Immediate feedback and gamified elements like scoring and a countdown timer.
+Personalisation: Users are prompted for their username, and progress is tracked throughout.
+Responsive and accessible design: The quiz is minimalistic, easy to read and use on various devices, and is accessible to all users.
+Educational and reflective: Users receive feedback that helps them learn while offering opportunities to retry and improve.
+Fast performance: Smooth transitions and fast load times ensure a seamless experience.
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+Target Audience:
+The target audience for Ancient Egypt Trivia Quiz is anyone wanting to test or expand their current knowledge on the history of Ancient Egypt. This includes, but is not limited to:
+History Enthusiasts: Interested in learning and testing knowledge about Ancient Egypt.
+Students: Looking for an engaging way to study or reinforce classroom content.
+Teachers and Educators: Seeking educational tools to incorporate into their lessons.
+Casual Gamers: Enjoy competitive or educational quiz games.
+Tourists and Travellers: People preparing for or reflecting on a trip to Egypt.
+Families: Parents and children engaging in an educational and fun activity together.
+Cultural Institutions: Museums, exhibitions, or galleries focused on Ancient Egypt, offering the quiz as an interactive tool for visitors.
+Social Media/Online Communities: Sharing and competing in trivia challenges with friends and followers.
 
-## Gitpod Reminders
+Visual Design:
+Colour Palette: Warm, earthy tones like golds, greens, and reds, with a background of soft neutrals to evoke Ancient Egypt. This palette draws inspiration from Egypt's iconic deserts and gold, featuring shades like deep yellows, browns, and sandy neutrals.
+Typography: Playful yet legible fonts ('Macondo' for titles and 'Lato' for text), combining thematic charm with readability.
+Layout: A centred, sectioned structure with a responsive design that provides an immersive and navigable quiz experience.
+Interactivity: Buttons with hover effects and colour feedback offer a smooth and engaging experience.
+Background: A subtle background image of ancient Egyptian desert and monuments is used to create an immersive atmosphere. The background is blurred and desaturated to ensure it doesn't overpower the quiz content.
+Visual Feedback: Immediate colour changes on correct/incorrect answers with transitions and animations like the timer countdown, making the quiz feel responsive and lively.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+Key Features:
+User Interface (UI)
+Username Input: At the start of the quiz, users are prompted to input a username, which will be displayed throughout the quiz. This personalises the experience, especially when showing final results at the end.
+Main Quiz Layout: The layout includes a title section, a timer, a username display, a dynamically updated question display, and multiple-choice buttons for answering.
+Visual Styling: The UI is clean and minimalist, with a focus on legibility and usability. The vibrant design is inspired by Egyptian history, including the colour palette and typography. The background image draws inspiration from Egyptian landscapes to ensure the design is immersive.
+Timer
+A countdown timer runs throughout the quiz, starting from 2 minutes (120 seconds). The timer is prominently displayed, providing a sense of urgency as the user works through the questions.
+If time runs out before completing all the questions, the quiz automatically ends and informs the player that time is up.
+Questions & Answers
+The quiz features a variety of questions about Ancient Egyptian history, including topics like:
+Pharaohs (e.g., "Who was the first pharaoh of Egypt?")
+Monuments (e.g., "Which pyramid is the largest?")
+Mythology (e.g., "Who is known as the Sun God?")
+Geography (e.g., "What river was central to the development of Egypt?")
+Each question has four multiple-choice answer options, randomised to prevent users from memorising answer patterns.
+Correct answers are highlighted in green, while incorrect answers are shown in red after selection. The correct answer is revealed to the user if they make an error.
+Game Flow
+Start: The quiz begins with a prompt for the user to enter their username. Once a username is entered, the quiz UI is shown, and the timer begins.
+Answering Questions: Users select an answer for each question. After answering, they click the "Next" button to proceed to the next question.
+Score Calculation: The user's score is updated in real-time as they answer questions correctly. Each correct answer earns one point.
+Ending the Quiz: Once all the questions are answered or the timer runs out, the quiz ends. The user is shown their score along with the time taken to complete the quiz.
 
-`python3 -m http.server`
+How It Works:
+Start the Quiz
+When the user clicks the "Start" button, they are prompted to enter their username.
+After entering a valid username, the quiz layout is revealed, the timer starts, and the first question is displayed.
+Answering Questions
+For each question, four answer buttons are shown. The user selects one of the options.
+If the answer is correct, the button background turns green, and the user's score increases by 1 point.
+If the answer is incorrect, the background of the selected button turns red, and the correct answer is displayed in green.
+Next Question
+After selecting an answer, the user clicks the "Next" button to proceed to the next question. The answer buttons are reset, and the next question is shown.
+This continues until all questions are answered or the timer runs out.
+End of Quiz
+When the quiz ends, the user is shown a summary of their performance, including their score and the time taken to complete the quiz.
+The user can restart the quiz by clicking the "Restart" button, which shuffles the questions and resets the timer.
 
-A blue button should appear to click: _Make Public_,
+Technology Stack:
+Languages
+HTML5: The basic structure of the quiz is built using HTML5, ensuring semantic markup for accessibility and search engine optimisation.
+CSS3: Styling is done using CSS3, with responsive design achieved using media queries. Custom fonts from Google Fonts are used for a more thematic experience.
+JavaScript: The interactivity of the quiz, such as question display, answer selection, score tracking, and timer functionality, is powered by JavaScript.
+Libraries
+Google Fonts: To import the 'Macondo' font, which is prominently used throughout this project.
+Platforms
+GitHub: To store code remotely and for deployment.
+GitPod: The chosen IDE environment.
+Other
+Favicon Generator: Although initially seeming unusual, the use of a funeral urn as the favicon aligns with the Ancient Egyptian theme. The urn symbolises mystery, death, the afterlife, and preservation of life in Egyptian culture, reinforcing the quiz’s educational goals.
 
-Another blue button should appear to click: _Open Browser_.
+Files and Structure:
+index.html: The main HTML file that contains the quiz structure.
+assets/css/stylesheet.css: The CSS file used for styling the page and the quiz elements.
+assets/javascript/script.js: The JavaScript file that contains the logic for running the quiz.
+assets/images/: Folder containing images like background and favicon.
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+Testing:
+Validation
+HTML has been validated with the W3C HTML5 Validator.
+There was 1 error message for HTML.
+CSS has been validated with the W3C CSS Validator.
+The JavaScript file has been tested on the site using the DevTools console.
+Links checked with https://validator.w3.org/checklink (W3C Link Checker).
 
-A blue button should appear to click: _Make Public_,
+The project was mainly tested using the Chrome Browsers Dev Tools feature which displayed everything as expected, across different devices to test responsiveness. Unfortunately, due to time constraints, I was not able to personally test the project across a wider range of devices. This is an area I would suggest for improvement in the future, as thorough cross-device testing would help ensure a more seamless experience for users on various platforms. I was, however, able to test this project’s functionality across different browsers such as Firefox, Safari and Edge using LambdaTest. Source: https://app.lambdatest.com/console/realtime/browser/desktop. This test confirmed the successful functionality of this project across all these browsers with no bugs or compromises in fast performance.
 
-Another blue button should appear to click: _Open Browser_.
+Deployment:
+This project was deployed via GitHub. Follow the steps below to deploy:
+Log in to your GitHub account and navigate to https://github.com/PaulinaD-CodeIns/ancient-egypt-trivia-project.
+Set up your own repository and either copy or clone it, or fork the repository.
+Run git add, git commit, and git push to a GitHub repository, if necessary.
+GitHub Pages will update from the master branch by default.
+Go to the Settings page of the repository.
+Scroll down to the GitHub Pages section.
+Select the Master Branch as the source and confirm the selection.
+Wait a minute or two for the project to go live. To see mine, please see: https://paulinad-codeins.github.io/ancient-egypt-trivia-project/
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+(Note: Not my own content, please see credits)
 
-To log into the Heroku toolbelt CLI:
+Credits:
+The questions and answer content for the Ancient Egypt Trivia Quiz was generated using ChatGPT 4.0. This AI-assisted content generation ensured the quiz covered a wide range of topics, including history, mythology, monuments, and geography. Source.
+The background image used in the quiz was sourced from Freepik, capturing the essence of Egyptian monuments and landscapes. Source.
+The overall structure and framework of the quiz project were inspired by a tutorial from Web Dev Simplified. This resource provided the foundational logic for creating an interactive quiz using HTML, CSS, and JavaScript. Source.
+The structure of this README document follows a model example shared by my mentor. The instructions for GitHub deployment are directly referenced from this source. Source.
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
-
-### Connecting your Mongo database
-
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
-
----
-
-## Release History
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**June 18, 2024,** Add Mongo back into template
-
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
-
-**May 28 2024:** Fix Mongo and Links installs
-
-**April 26 2024:** Update node version to 16
-
-**September 20 2023:** Update Python version to 3.9.17.
-
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
-
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
-
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
----
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
-
-Refernces: <a href="https://www.flaticon.com/free-icons/sphinx" title="sphinx icons">Sphinx icons created by justicon - Flaticon</a>
-flat icon
+Contact:
+Feel free to fork the repository, make changes, and submit pull requests. Suggestions for improving the quiz or adding new features are always welcome! For more information, please contact me at paulid4628@gmail.com.
