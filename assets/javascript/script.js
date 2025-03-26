@@ -47,10 +47,10 @@ function StartQuiz() {
     //Collectes username//
     let username;
     do {
-        username = prompt("Welcome to the Quiz! Please enter your username:");
+        username = prompt("Welcome to the Quiz! Please enter your branch name:");
         
         if (username === null) {
-            alert("You must enter a username to continue, sorry!");
+            alert("You must enter your branch name, sorry!");
         }
     } while (!username || username.trim() === "");
 
