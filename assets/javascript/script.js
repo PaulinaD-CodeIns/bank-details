@@ -22,17 +22,18 @@ nextButton.addEventListener('click', SetNextQuestion);
 
 // Random shuffle of the questions before quiz start //
 const questions = [
-    { question: "Who was the first pharaoh of Egypt?", options: ["Narmer", "Tutankhamun", "Cleopatra", "Ramses II"], correctAnswer: "Narmer" },
-    { question: "What is the capital of ancient Egypt?", options: ["Alexandria", "Cairo", "Thebes", "Memphis"], correctAnswer: "Thebes" },
-    { question: "Which pyramid is the largest?", options: ["Pyramid of Djoser", "Great Pyramid of Giza", "Pyramid of Khafre", "Pyramid of Amenemhat II"], correctAnswer: "Great Pyramid of Giza" },
-    { question: "What did Egyptians use to write?", options: ["Hieroglyphs", "Latin", "Greek", "Sanskrit"], correctAnswer: "Hieroglyphs" },
-    { question: "Which goddess was associated with motherhood and fertility?", options: ["Isis", "Hathor", "Bastet", "Sekhmet"], correctAnswer: "Isis" },
-    { question: "What was the main purpose of the pyramids?", options: ["Tombs", "Temples", "Storage", "Palaces"], correctAnswer: "Tombs" },
-    { question: "Who is known as the Sun God?", options: ["Osiris", "Horus", "Ra", "Set"], correctAnswer: "Ra" },
-    { question: "Which Pharaoh's tomb was discovered in 1922?", options: ["Ramses II", "Tutankhamun", "Cleopatra", "Akhenaten"], correctAnswer: "Tutankhamun" },
-    { question: "What river was central to the development of Egypt?", options: ["Amazon", "Yangtze", "Nile", "Ganges"], correctAnswer: "Nile" },
-    { question: "What is the name of the ancient Egyptian sunken city discovered underwater?", options: ["Heracleion", "Atlantis", "Giza", "Amarna"], correctAnswer: "Heracleion" }
+    { question: "At Santander, our ultimate goal is to make…", options: ["Our customers laugh", "Our customers better happen", "The bank more money", "It to the end of the day"], correctAnswer: "Our customers better happen" },
+    { question: "Which current account does not come with a cheque book?", options: ["Everyday", "Edge Student", "Basic", "Choice"], correctAnswer: "Basic" },
+    { question: "When is the 0% foreign conversion fee applied after opening or transferring to the Santander Edge or Santander Edge Up current account?", options: ["Immediately after opening the account", "1 working day after opening or transferring", "3 working days after opening or transferring", "7 working days after opening or transferring"], correctAnswer: "3 working days after opening or transferring" },
+    { question: "With the Everyday No Balance Transfer Fee Credit Card, up to how many additional cardholders can you have?", options: ["1 additional cardholder", "Up to 3", "Up to 5", "None"], correctAnswer: "Up to 3" },
+    { question: "What is the Junior ISA limit for the 2025/26 tax year, and when can deposits be made?", options: ["£8,000, from 1 April 2025", "£9,000, from 6 April 2025", "£10,000, from 6 April 2025", "£9,000, from 1 May 2026"], correctAnswer: "£9,000, from 6 April 2025" },
+    { question: "What is the maximum APR Santander could offer you on any loan amount?", options: ["19.9%", "24.9%", "29.9%", "39.9%"], correctAnswer: "29.9%" },
+    { question: "How much less is the online price for Santander travel insurance compared to the telephone price for Santander customers?", options: ["10%", "20%", "30%", "40%"], correctAnswer: "30%" },
+    { question: "What is the range of purchase value for which you can claim a refund from Santander under Section 75 of the Consumer Credit Act?", options: ["£1 - £500", "£50 - £2,000", "£100 - £30,000", "£500 - £20,000"], correctAnswer: "£100 - £30,000" },
+    { question: "On 26th of April, Janet is making her 3rd withdrawal from the Limited Access Saver. When will her rate go back up to 1.80%?", options: ["In 5 days", "In 31 days", "Whenever her settlement period begins", "In 14 days"], correctAnswer: "In 5 days" },
+    { question: "How long is your unique code valid from the date of issue, and can it be re-issued once expired?", options: ["30 days, yes, it can be re-issued", "60 days, no, it cannot be re-issued", "90 days, yes, it can be re-issued", "60 days, yes, it can be re-issued"], correctAnswer: "60 days, no, it cannot be re-issued" }
 ];
+
 
 // Shuffled random questions quiz start //
 let shuffledQuestions = [];
@@ -178,7 +179,7 @@ function SetNextQuestion() {
 function endQuiz() {
     // Show the username, score & time taken for the quiz
     const finalUsername = localStorage.getItem('username');
-    alert(`Congratulations ${finalUsername}! Your score is ${score} out of ${questions.length}! Time taken: ${Math.floor((120 - timeRemaining) / 60)} minutes and ${(120 - timeRemaining) % 60} seconds.`);
+    alert(`Congratulations ${finalUsername} team! Your score is ${score} out of ${questions.length}! Time taken: ${Math.floor((120 - timeRemaining) / 60)} minutes and ${(120 - timeRemaining) % 60} seconds.`);
 
     
     clearInterval(timerInterval); // Timer stops
