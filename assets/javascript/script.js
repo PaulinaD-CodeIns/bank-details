@@ -72,7 +72,7 @@ function StartQuiz() {
     currentQuestionIndex = 0;
 
     // Start the timer //
-    timeRemaining = 120;
+    timeRemaining = 300;
     startTimer();
 
     showQuestion(shuffledQuestions[currentQuestionIndex]);
